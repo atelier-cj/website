@@ -27,14 +27,16 @@ onMounted(() => {
   onScroll()
 
   if (typeof IntersectionObserver === 'undefined') {
-    document.querySelectorAll('.at-reveal').forEach((el) => el.classList.add('is-in'))
+    document.querySelectorAll<HTMLElement>('.at-reveal').forEach((el) => {
+      el.dataset.revealed = '1'
+    })
     return
   }
   io = new IntersectionObserver(
     (entries) => {
       for (const entry of entries) {
         if (!entry.isIntersecting) continue
-        entry.target.classList.add('is-in')
+        ;(entry.target as HTMLElement).dataset.revealed = '1'
         io?.unobserve(entry.target)
       }
     },

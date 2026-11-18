@@ -156,9 +156,22 @@ const active = ref<string | null>(null)
   }
 }
 
+/* 聚焦只做轻微衰减：压到 0.42 时整层看着像「消失了」 */
 .at-eco__layer.is-dim {
-  opacity: 0.42;
-  filter: saturate(0.5);
+  opacity: 0.72;
+  filter: saturate(0.85);
+}
+
+.at-eco__layer.is-active .at-eco__node {
+  border-color: var(--at-line-strong);
+}
+
+/* 触摸设备没有真正的 hover，点一下就让别的层一直发暗，直接不启用 */
+@media (hover: none) {
+  .at-eco__layer.is-dim {
+    opacity: 1;
+    filter: none;
+  }
 }
 
 .at-eco__label {
