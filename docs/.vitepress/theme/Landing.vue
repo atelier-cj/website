@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import Starfield from './components/Starfield.vue'
 import TerminalDemo from './components/TerminalDemo.vue'
+import UseCases from './components/UseCases.vue'
 import EcosystemMap from './components/EcosystemMap.vue'
 import LibraryGrid from './components/LibraryGrid.vue'
 import ProductShowcase from './components/ProductShowcase.vue'
@@ -183,6 +184,9 @@ onUnmounted(() => {
 
       <!-- ── 终端演示 ─────────────────────────────────── -->
       <TerminalDemo id="terminal" />
+
+      <!-- ── 使用场景 ─────────────────────────────────── -->
+      <UseCases />
 
       <!-- ── 生态图谱 ─────────────────────────────────── -->
       <EcosystemMap />
