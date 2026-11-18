@@ -25,9 +25,9 @@
         rel="noreferrer"
       >
         <img
-          src="/architecture/atelier-runtime.png"
-          width="2812"
-          height="1230"
+          src="/architecture/atelier-runtime.svg"
+          width="1216"
+          height="532"
           loading="lazy"
           alt="Atelier Harness 运行时架构图：CLI、HTTP、ACP、A2A 四个入口进入 Harness 边界，边界内是 Agent 循环、工具系统、会话树、上下文压缩、信任闸门与 Skill 注入，对外连接 LLM Provider、MCP 服务器与子 Agent"
         />
