@@ -1,0 +1,90 @@
+/* 文档页配色：与首页同一套深空 + 霓虹变量，避免点进文档就「换了个站」。 */
+
+:root {
+  --vp-c-brand-1: #0b8fa3;
+  --vp-c-brand-2: #12aac4;
+  --vp-c-brand-3: #5b3fe0;
+  --vp-c-brand-soft: rgba(11, 143, 163, 0.12);
+
+  --vp-c-tip-1: #0b8fa3;
+  --vp-c-tip-soft: rgba(11, 143, 163, 0.12);
+}
+
+.dark {
+  --vp-c-bg: #04050a;
+  --vp-c-bg-alt: #070a12;
+  --vp-c-bg-elv: #0a0e18;
+  --vp-c-bg-soft: #0b1019;
+  --vp-c-divider: rgba(120, 215, 255, 0.13);
+  --vp-c-gutter: rgba(120, 215, 255, 0.09);
+
+  --vp-c-brand-1: #22e6ff;
+  --vp-c-brand-2: #63eeff;
+  --vp-c-brand-3: #8b6bff;
+  --vp-c-brand-soft: rgba(34, 230, 255, 0.12);
+
+  --vp-c-text-1: #e8eef8;
+  --vp-c-text-2: #9cabc1;
+  --vp-c-text-3: #6a7a91;
+
+  --vp-c-tip-1: #22e6ff;
+  --vp-c-tip-soft: rgba(34, 230, 255, 0.1);
+  --vp-c-note-1: #8b6bff;
+  --vp-c-note-soft: rgba(139, 107, 255, 0.12);
+
+  --vp-code-block-bg: #080b14;
+  --vp-code-block-divider-color: rgba(120, 215, 255, 0.12);
+  --vp-code-line-highlight-color: rgba(34, 230, 255, 0.08);
+
+  --vp-button-brand-bg: #22e6ff;
+  --vp-button-brand-text: #001018;
+  --vp-button-brand-hover-bg: #63eeff;
+  --vp-button-brand-hover-text: #001018;
+  --vp-button-brand-active-bg: #12c4dc;
+}
+
+/* 背景里带一点极光，和首页同一个空间感 */
+.dark body {
+  background-image:
+    radial-gradient(900px 520px at 82% -6%, rgba(139, 107, 255, 0.07), transparent 62%),
+    radial-gradient(760px 420px at 4% 0%, rgba(34, 230, 255, 0.05), transparent 60%);
+  background-attachment: fixed;
+}
+
+.dark .VPNavBar,
+.dark .VPSidebar {
+  background-color: rgba(4, 5, 10, 0.86) !important;
+  backdrop-filter: blur(12px) saturate(140%);
+}
+
+.dark .VPSidebar {
+  border-right: 1px solid var(--vp-c-divider);
+}
+
+/* 内容区：标题发光收敛一点，别影响可读性 */
+.dark .vp-doc h1,
+.dark .vp-doc h2 {
+  letter-spacing: -0.01em;
+}
+
+.dark .vp-doc h2 {
+  border-top-color: var(--vp-c-divider);
+}
+
+.dark .vp-doc a {
+  text-underline-offset: 3px;
+}
+
+.dark .vp-doc :not(pre) > code {
+  background-color: rgba(34, 230, 255, 0.08);
+  border: 1px solid rgba(34, 230, 255, 0.14);
+  color: #b8f2ff;
+}
+
+.dark .vp-doc table {
+  border-color: var(--vp-c-divider);
+}
+
+.dark .VPNavBarTitle .logo {
+  filter: drop-shadow(0 0 8px rgba(34, 230, 255, 0.35));
+}

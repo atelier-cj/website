@@ -1,0 +1,148 @@
+{
+  "name": "cangjie",
+  "scopeName": "source.cangjie",
+  "fileTypes": [
+    "cj"
+  ],
+  "aliases": [
+    "cj",
+    "cjlang"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#annotations"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#functions"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.cangjie",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.cangjie"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.cangjie"
+            }
+          }
+        },
+        {
+          "name": "comment.line.double-slash.cangjie",
+          "match": "//.*$"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.multi.cangjie",
+          "begin": "\"\"\"",
+          "end": "\"\"\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cangjie",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.cangjie",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cangjie",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.cangjie",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.cangjie",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "annotations": {
+      "patterns": [
+        {
+          "name": "storage.type.annotation.cangjie",
+          "match": "@[A-Za-z_][A-Za-z0-9_]*"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.cangjie",
+          "match": "\\b(if|else|match|case|while|do|for|in|break|continue|return|try|catch|finally|throw|spawn|sync|async|await|where|is|as|from)\\b"
+        },
+        {
+          "name": "keyword.declaration.cangjie",
+          "match": "\\b(class|interface|struct|enum|func|let|var|const|type|extend|macro|operator|init|package|import|main)\\b"
+        },
+        {
+          "name": "storage.modifier.cangjie",
+          "match": "\\b(public|private|protected|internal|static|abstract|open|override|sealed|redef|mut|unsafe|foreign)\\b"
+        },
+        {
+          "name": "constant.language.cangjie",
+          "match": "\\b(true|false|None|Some|this|super)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "entity.name.type.cangjie",
+          "match": "\\b[A-Z][A-Za-z0-9_]*\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.cangjie",
+          "match": "\\b\\d[\\d_]*(\\.[\\d_]+)?([eE][+-]?\\d+)?\\b"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.cangjie",
+          "match": "\\b[a-z_][A-Za-z0-9_]*(?=\\s*\\()"
+        }
+      ]
+    }
+  }
+}

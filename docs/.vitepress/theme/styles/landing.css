@@ -1,0 +1,325 @@
+/* ===========================================================
+   Atelier landing — 全局设计令牌与首页公共结构
+   首页完全脱离 VitePress 默认主题布局，因此这里的类只在
+   .at-landing 作用域下生效，不影响文档页。
+   =========================================================== */
+
+.at-landing {
+  --at-bg: #04050a;
+  --at-bg-soft: #080b14;
+  --at-panel: rgba(11, 16, 27, 0.66);
+  --at-panel-solid: #0a0e18;
+  --at-line: rgba(120, 215, 255, 0.14);
+  --at-line-strong: rgba(120, 215, 255, 0.34);
+  --at-cyan: #22e6ff;
+  --at-magenta: #ff2e88;
+  --at-violet: #8b6bff;
+  --at-gold: #ffc857;
+  --at-text: #e8eef8;
+  --at-dim: #8b9bb4;
+  --at-dimmer: #5f6f88;
+  --at-sans: "Inter", "PingFang SC", "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif;
+  --at-mono: ui-monospace, "JetBrains Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --at-maxw: 1200px;
+  --at-radius: 14px;
+
+  position: relative;
+  min-height: 100vh;
+  background: var(--at-bg);
+  color: var(--at-text);
+  font-family: var(--at-sans);
+  overflow-x: hidden;
+  isolation: isolate;
+  -webkit-font-smoothing: antialiased;
+}
+
+.at-landing ::selection {
+  background: rgba(34, 230, 255, 0.28);
+  color: #fff;
+}
+
+/* 顶部导航（首页专用，非 VitePress navbar） */
+.at-nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 64px;
+  padding: 0 clamp(16px, 4vw, 48px);
+  background: linear-gradient(to bottom, rgba(4, 5, 10, 0.86), rgba(4, 5, 10, 0.42));
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+.at-nav.is-stuck {
+  border-bottom-color: var(--at-line);
+  background: rgba(4, 5, 10, 0.9);
+}
+.at-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--at-mono);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--at-text);
+  text-decoration: none;
+  margin-right: auto;
+}
+.at-nav__brand img,
+.at-nav__brand svg {
+  width: 26px;
+  height: 26px;
+}
+.at-nav__brand em {
+  font-style: normal;
+  color: var(--at-cyan);
+}
+.at-nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.2vw, 30px);
+}
+.at-nav__links a {
+  position: relative;
+  font-size: 13.5px;
+  letter-spacing: 0.06em;
+  color: var(--at-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  padding: 6px 0;
+}
+.at-nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  height: 1px;
+  background: var(--at-cyan);
+  box-shadow: 0 0 8px var(--at-cyan);
+  transition: right 0.25s ease;
+}
+.at-nav__links a:hover {
+  color: var(--at-text);
+}
+.at-nav__links a:hover::after {
+  right: 0;
+}
+.at-nav__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--at-line-strong);
+  border-radius: 999px;
+  font-family: var(--at-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  color: var(--at-cyan) !important;
+  text-decoration: none;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+.at-nav__cta:hover {
+  background: rgba(34, 230, 255, 0.1);
+  box-shadow: 0 0 20px rgba(34, 230, 255, 0.25);
+}
+.at-nav__links a.at-nav__cta::after {
+  display: none;
+}
+
+/* 章节通用 */
+.at-section {
+  position: relative;
+  max-width: var(--at-maxw);
+  margin: 0 auto;
+  padding: clamp(72px, 11vh, 130px) clamp(20px, 4vw, 40px);
+}
+.at-section__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--at-mono);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--at-cyan);
+  margin-bottom: 18px;
+}
+.at-section__eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--at-cyan));
+  box-shadow: 0 0 6px var(--at-cyan);
+}
+.at-section__title {
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.18;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+  background: linear-gradient(120deg, #fff 20%, #b9d6ff 55%, var(--at-cyan) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.at-section__desc {
+  max-width: 640px;
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--at-dim);
+  margin: 0 0 44px;
+}
+
+/* 滚动入场 */
+.at-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.75s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.75s cubic-bezier(0.2, 0.7, 0.2, 1);
+  will-change: opacity, transform;
+}
+.at-reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .at-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* 背景层 */
+.at-bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+}
+.at-bg-layer--vignette {
+  z-index: -1;
+  background:
+    radial-gradient(1200px 700px at 50% -10%, rgba(34, 230, 255, 0.11), transparent 62%),
+    radial-gradient(900px 620px at 88% 8%, rgba(139, 107, 255, 0.12), transparent 60%),
+    radial-gradient(900px 700px at 6% 30%, rgba(255, 46, 136, 0.07), transparent 58%),
+    radial-gradient(circle at 50% 100%, rgba(4, 5, 10, 0.9), rgba(4, 5, 10, 0) 60%);
+}
+.at-scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.4;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.022) 0 1px,
+    transparent 1px 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+/* 按钮 */
+.at-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.at-btn--primary {
+  color: #001018;
+  background: linear-gradient(115deg, var(--at-cyan), #7ef0ff 55%, #b8f6ff);
+  box-shadow: 0 0 0 1px rgba(34, 230, 255, 0.5), 0 10px 40px -12px rgba(34, 230, 255, 0.7);
+}
+.at-btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px rgba(34, 230, 255, 0.7), 0 16px 50px -12px rgba(34, 230, 255, 0.85);
+}
+.at-btn--ghost {
+  color: var(--at-text);
+  border-color: var(--at-line-strong);
+  background: rgba(255, 255, 255, 0.02);
+}
+.at-btn--ghost:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 页脚 */
+.at-footer {
+  position: relative;
+  border-top: 1px solid var(--at-line);
+  background: linear-gradient(to bottom, rgba(8, 11, 20, 0.4), rgba(4, 5, 10, 1));
+  padding: 56px clamp(20px, 4vw, 40px) 40px;
+}
+.at-footer__inner {
+  max-width: var(--at-maxw);
+  margin: 0 auto;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: minmax(220px, 1.4fr) repeat(3, minmax(120px, 1fr));
+}
+@media (max-width: 760px) {
+  .at-footer__inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.at-footer h4 {
+  margin: 0 0 14px;
+  font-family: var(--at-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--at-dimmer);
+}
+.at-footer a {
+  display: block;
+  padding: 5px 0;
+  font-size: 13.5px;
+  color: var(--at-dim);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.at-footer a:hover {
+  color: var(--at-cyan);
+}
+.at-footer__brand p {
+  margin: 12px 0 0;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: var(--at-dim);
+  max-width: 300px;
+}
+.at-footer__bottom {
+  max-width: var(--at-maxw);
+  margin: 40px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--at-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  font-family: var(--at-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
+  color: var(--at-dimmer);
+}
+
+@media (max-width: 720px) {
+  .at-nav__links {
+    display: none;
+  }
+}

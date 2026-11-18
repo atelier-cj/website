@@ -1,0 +1,16 @@
+{
+  "name": "atelier-cj-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "shot": "node scripts/shot.mjs"
+  },
+  "devDependencies": {
+    "puppeteer-core": "^25.18.1",
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.45"
+  }
+}
