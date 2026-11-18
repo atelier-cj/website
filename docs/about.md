@@ -55,17 +55,19 @@ monorepo 的产品版本 lockstep：一个 `[workspace]` 视为一个产品，�
 
 库全部开源，按仓拆分：
 
-| 仓 | 包名 | 地址 |
-|---|---|---|
-| atelier | `atelier` | [atomgit.com/ystyle/atelier](https://atomgit.com/ystyle/atelier) |
-| mcp-cj | `mcp` | [atomgit.com/ystyle/mcp-cj](https://atomgit.com/ystyle/mcp-cj) |
-| a2a-cj | `a2a` | [atomgit.com/ystyle/a2a-cj](https://atomgit.com/ystyle/a2a-cj) |
-| acp-cj | `acp` | [atomgit.com/ystyle/acp-cj](https://atomgit.com/ystyle/acp-cj) |
-| uhp | `uhp` / `uhp_acp` / `uhp_opencode` | [atomgit.com/ystyle/uhp](https://atomgit.com/ystyle/uhp) |
-| uhp-server | 二进制产品 | [atomgit.com/ystyle/uhp-server](https://atomgit.com/ystyle/uhp-server) |
-| cordis-cj | `ystyle::cordis_*` | [atomgit.com/ystyle/cordis-cj](https://atomgit.com/ystyle/cordis-cj) |
-| llm_api | `llm_api` | [atomgit.com/ystyle/llm-api](https://atomgit.com/ystyle/llm-api) |
-| json-rpc | `ystyle::jsonrpc` | [gitcode.com/ystyle/json-rpc](https://gitcode.com/ystyle/json-rpc) |
+| 仓 | 包名 | 主仓 | GitHub 镜像 |
+|---|---|---|---|
+| atelier | `atelier` | [atomgit.com/ystyle/atelier](https://atomgit.com/ystyle/atelier) | [atelier-cj/atelier](https://github.com/atelier-cj/atelier) |
+| mcp-cj | `mcp` | [atomgit.com/ystyle/mcp-cj](https://atomgit.com/ystyle/mcp-cj) | [atelier-cj/mcp-cj](https://github.com/atelier-cj/mcp-cj) |
+| a2a-cj | `a2a` | [atomgit.com/ystyle/a2a-cj](https://atomgit.com/ystyle/a2a-cj) | [atelier-cj/a2a-cj](https://github.com/atelier-cj/a2a-cj) |
+| acp-cj | `acp` | [atomgit.com/ystyle/acp-cj](https://atomgit.com/ystyle/acp-cj) | [atelier-cj/acp-cj](https://github.com/atelier-cj/acp-cj) |
+| uhp | `uhp` / `uhp_acp` / `uhp_opencode` | [atomgit.com/ystyle/uhp](https://atomgit.com/ystyle/uhp) | [atelier-cj/uhp](https://github.com/atelier-cj/uhp) |
+| uhp-server | 二进制产品 | [atomgit.com/ystyle/uhp-server](https://atomgit.com/ystyle/uhp-server) | [atelier-cj/uhp-server](https://github.com/atelier-cj/uhp-server) |
+| cordis-cj | `ystyle::cordis_*` | [atomgit.com/ystyle/cordis-cj](https://atomgit.com/ystyle/cordis-cj) | [atelier-cj/cordis-cj](https://github.com/atelier-cj/cordis-cj) |
+| llm_api | `llm_api` | [atomgit.com/ystyle/llm-api](https://atomgit.com/ystyle/llm-api) | [atelier-cj/llm-api](https://github.com/atelier-cj/llm-api) |
+| json-rpc | `ystyle::jsonrpc` | [gitcode.com/ystyle/json-rpc](https://gitcode.com/ystyle/json-rpc) | [atelier-cj/json-rpc](https://github.com/atelier-cj/json-rpc) |
+
+GitHub 侧是**只读镜像**，`git push` 请提到主仓；镜像随主仓手动/定时同步。
 
 两个成品是私有仓（内网 Gitea），源码暂未公开；本站在 [github.com/atelier-cj](https://github.com/atelier-cj) 发布。
 
