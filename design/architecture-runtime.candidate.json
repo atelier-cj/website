@@ -1,0 +1,304 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Atelier Harness 运行时",
+    "subtitle": "一个 Agent 回合里，哪些模块在干活",
+    "output": ".archify/architecture-atelier-runtime-20261118-163000/atelier-runtime.html",
+    "quality_profile": "showcase",
+    "locale": "zh-CN"
+  },
+  "components": [
+    {
+      "id": "cli",
+      "type": "external",
+      "label": "CLI / TUI",
+      "sublabel": "终端交互",
+      "pos": [
+        40,
+        100
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "http",
+      "type": "external",
+      "label": "HTTP 服务",
+      "sublabel": "POST /run · SSE",
+      "pos": [
+        40,
+        190
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "acp",
+      "type": "external",
+      "label": "ACP",
+      "sublabel": "编辑器子进程",
+      "pos": [
+        40,
+        280
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "a2a",
+      "type": "external",
+      "label": "A2A",
+      "sublabel": "远端 Agent",
+      "pos": [
+        40,
+        370
+      ],
+      "size": [
+        150,
+        64
+      ]
+    },
+    {
+      "id": "session",
+      "type": "database",
+      "label": "Session 树",
+      "sublabel": "Entry + 父指针",
+      "pos": [
+        300,
+        50
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "context",
+      "type": "backend",
+      "label": "上下文压缩",
+      "sublabel": "阈值 + 摘要复用",
+      "pos": [
+        520,
+        50
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "tool",
+      "type": "backend",
+      "label": "工具系统",
+      "sublabel": "Registry + 执行",
+      "pos": [
+        740,
+        50
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "Agent 循环",
+      "sublabel": "推理 → 工具 → 观察",
+      "pos": [
+        380,
+        220
+      ],
+      "size": [
+        190,
+        90
+      ]
+    },
+    {
+      "id": "trust",
+      "type": "security",
+      "label": "信任闸门",
+      "sublabel": "目录级审批",
+      "pos": [
+        300,
+        380
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "skill",
+      "type": "backend",
+      "label": "Skill 注入",
+      "sublabel": "按规范声明",
+      "pos": [
+        520,
+        380
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "provider",
+      "type": "cloud",
+      "label": "LLM Provider",
+      "sublabel": "OpenAI / Anthropic / Ollama",
+      "pos": [
+        1000,
+        220
+      ],
+      "size": [
+        176,
+        64
+      ]
+    },
+    {
+      "id": "mcp",
+      "type": "external",
+      "label": "MCP 服务器",
+      "sublabel": "stdio / Streamable HTTP",
+      "pos": [
+        980,
+        50
+      ],
+      "size": [
+        176,
+        64
+      ]
+    },
+    {
+      "id": "subagent",
+      "type": "backend",
+      "label": "子 Agent",
+      "sublabel": "同进程 · 隔离上下文",
+      "pos": [
+        980,
+        380
+      ],
+      "size": [
+        176,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Atelier Harness",
+      "wraps": [
+        "session",
+        "context",
+        "tool",
+        "agent",
+        "trust",
+        "skill"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "cli-agent",
+      "from": "cli",
+      "to": "agent"
+    },
+    {
+      "id": "http-agent",
+      "from": "http",
+      "to": "agent"
+    },
+    {
+      "id": "acp-agent",
+      "from": "acp",
+      "to": "agent"
+    },
+    {
+      "id": "a2a-agent",
+      "from": "a2a",
+      "to": "agent"
+    },
+    {
+      "id": "agent-session",
+      "from": "agent",
+      "to": "session",
+      "label": "读写会话"
+    },
+    {
+      "id": "agent-context",
+      "from": "agent",
+      "to": "context",
+      "label": "请求压缩"
+    },
+    {
+      "id": "agent-tool",
+      "from": "agent",
+      "to": "tool",
+      "label": "调用"
+    },
+    {
+      "id": "agent-trust",
+      "from": "agent",
+      "to": "trust",
+      "label": "审批"
+    },
+    {
+      "id": "agent-skill",
+      "from": "agent",
+      "to": "skill",
+      "label": "注入"
+    },
+    {
+      "id": "agent-provider",
+      "from": "agent",
+      "to": "provider",
+      "label": "chat / stream",
+      "variant": "emphasis"
+    },
+    {
+      "id": "tool-mcp",
+      "from": "tool",
+      "to": "mcp",
+      "label": "tools/call"
+    },
+    {
+      "id": "agent-subagent",
+      "from": "agent",
+      "to": "subagent",
+      "label": "委派"
+    },
+    {
+      "id": "context-agent",
+      "from": "context",
+      "to": "agent",
+      "label": "摘要回灌"
+    },
+    {
+      "id": "mcp-tool",
+      "from": "mcp",
+      "to": "tool",
+      "label": "通知 / 资源",
+      "fromSide": "top",
+      "toSide": "top",
+      "via": [
+        [
+          1068,
+          32
+        ],
+        [
+          820,
+          32
+        ]
+      ]
+    }
+  ]
+}

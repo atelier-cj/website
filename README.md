@@ -83,6 +83,32 @@ curl -I https://atelier-ai.top
 
 DNS 生效后 GitHub 才会签发 HTTPS 证书（Let's Encrypt），第一次可能要等几分钟到几十分钟。
 
+## 架构图
+
+首页「一个回合里，这些模块在干活」那张图由 [archify](https://github.com/tt-a1i/archify) 生成，源文件存档在 `design/architecture-runtime.candidate.json`。
+
+改动流程：
+
+```bash
+# 1) 把存档的 candidate 放到工作目录外的临时目录，重新生成
+mkdir -p .archify/architecture-runtime
+cp design/architecture-runtime.candidate.json .archify/architecture-runtime/candidate.json
+node <archify>/bin/archify.mjs finalize architecture \
+  .archify/architecture-runtime/candidate.json \
+  .archify/architecture-runtime/atelier-runtime.html \
+  --quality showcase --json
+
+# 2) 导出成自包含 SVG（暗色、去掉动效/遮罩等静态化会变黑块的装饰层）
+node scripts/export-svg.mjs \
+  "$PWD/.archify/architecture-runtime/atelier-runtime.html" \
+  "$PWD/docs/public/architecture/atelier-runtime.svg"
+
+# 3) 交互版也更新一份
+cp .archify/architecture-runtime/atelier-runtime.html docs/public/architecture/
+```
+
+`finalize` 一旦跑过 browser-check，后续重跑要加 `--out-dir <新目录>`，否则会报证据路径冲突。
+
 ## 内容约定
 
 - 库页面从各仓 `README.md` / `docs/` 提炼，不复制上游全文；API 与版本号必须与仓库一致
