@@ -4,6 +4,7 @@ import Starfield from './components/Starfield.vue'
 import TerminalDemo from './components/TerminalDemo.vue'
 import UseCases from './components/UseCases.vue'
 import EcosystemMap from './components/EcosystemMap.vue'
+import RuntimeArchitecture from './components/RuntimeArchitecture.vue'
 import LibraryGrid from './components/LibraryGrid.vue'
 import ProductShowcase from './components/ProductShowcase.vue'
 import SiteFooter from './components/SiteFooter.vue'
@@ -196,6 +197,9 @@ onUnmounted(() => {
 
       <!-- ── 生态图谱 ─────────────────────────────────── -->
       <EcosystemMap />
+
+      <!-- ── 运行时架构 ───────────────────────────────── -->
+      <RuntimeArchitecture />
 
       <!-- ── 库 ──────────────────────────────────────── -->
       <LibraryGrid />
