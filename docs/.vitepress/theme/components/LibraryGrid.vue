@@ -151,8 +151,21 @@ function onMove(event: MouseEvent) {
 <style scoped>
 .at-libs__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(268px, 1fr));
+  /* 九个库正好 3×3 */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
+}
+
+@media (max-width: 980px) {
+  .at-libs__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .at-libs__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .at-lib {

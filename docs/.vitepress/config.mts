@@ -25,8 +25,30 @@ export default defineConfig({
     siteTitle: 'Atelier',
     nav: [
       { text: '首页', link: '/' },
-      { text: '生态', link: '/ecosystem/' },
+      {
+        // 点击进入 Atelier 介绍，悬停展开生态成员
+        text: '生态',
+        activeMatch: '/(libs/atelier|products/)',
+        items: [
+          { text: '生态全景', link: '/ecosystem/' },
+          { text: '荧的炼金工房', link: '/products/lumine' },
+          { text: '世界树 · Yggdrasil', link: '/products/yggdrasil' },
+          { text: '星痕的炼金工房', link: '/products/starline' },
+        ],
+      },
       { text: '文档', link: '/guide/' },
+      {
+        // 点击进入库索引，悬停展开协议层（底层库不占位）
+        text: '库',
+        activeMatch: '/(libs/)',
+        items: [
+          { text: 'MCP · 模型上下文', link: '/libs/mcp' },
+          { text: 'A2A · Agent 互联', link: '/libs/a2a' },
+          { text: 'ACP · 编辑器接入', link: '/libs/acp' },
+          { text: 'UHP · 常驻 Harness', link: '/libs/uhp' },
+          { text: '库索引', link: '/libs/' },
+        ],
+      },
       { text: '产品', link: '/products/' },
       { text: '关于', link: '/about' },
     ],

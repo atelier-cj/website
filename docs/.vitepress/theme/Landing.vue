@@ -54,9 +54,31 @@ onUnmounted(() => {
         <span>ATELIER<em>_</em></span>
       </a>
       <nav class="at-nav__links">
-        <a href="/ecosystem/">生态</a>
+        <div class="at-nav__item">
+          <a href="/libs/atelier">生态<i class="at-nav__caret" /></a>
+          <div class="at-nav__drop">
+            <a href="/ecosystem/">生态全景</a>
+            <span class="at-nav__drop-sep" />
+            <a href="/products/lumine">荧的炼金工房</a>
+            <a href="/products/yggdrasil">世界树</a>
+            <a href="/products/starline">星痕的炼金工房</a>
+          </div>
+        </div>
+
         <a href="/guide/">文档</a>
-        <a href="/libs/">库</a>
+
+        <div class="at-nav__item">
+          <a href="/libs/">库<i class="at-nav__caret" /></a>
+          <div class="at-nav__drop">
+            <a href="/libs/mcp">MCP · 模型上下文</a>
+            <a href="/libs/a2a">A2A · Agent 互联</a>
+            <a href="/libs/acp">ACP · 编辑器接入</a>
+            <a href="/libs/uhp">UHP · 常驻 Harness</a>
+            <span class="at-nav__drop-sep" />
+            <a href="/libs/">库索引</a>
+          </div>
+        </div>
+
         <a href="/products/">产品</a>
         <a class="at-nav__cta" href="https://github.com/atelier-cj" target="_blank" rel="noreferrer">
           GITHUB ↗
@@ -77,9 +99,22 @@ onUnmounted(() => {
 
     <Transition name="at-drawer">
       <div v-if="menuOpen" class="at-drawer" @click="menuOpen = false">
+        <p class="at-drawer__group">生态</p>
+        <a href="/libs/atelier">Atelier · Agent Harness</a>
         <a href="/ecosystem/">生态全景</a>
-        <a href="/guide/">文档</a>
+        <a href="/products/lumine">荧的炼金工房</a>
+        <a href="/products/yggdrasil">世界树</a>
+        <a href="/products/starline">星痕的炼金工房</a>
+
+        <p class="at-drawer__group">库</p>
         <a href="/libs/">库索引</a>
+        <a href="/libs/mcp">MCP · 模型上下文</a>
+        <a href="/libs/a2a">A2A · Agent 互联</a>
+        <a href="/libs/acp">ACP · 编辑器接入</a>
+        <a href="/libs/uhp">UHP · 常驻 Harness</a>
+
+        <p class="at-drawer__group">其它</p>
+        <a href="/guide/">文档</a>
         <a href="/products/">产品</a>
         <a href="/about">关于</a>
         <a class="at-drawer__cta" href="https://github.com/atelier-cj" target="_blank" rel="noreferrer">
