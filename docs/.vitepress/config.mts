@@ -19,6 +19,18 @@ export default defineConfig({
     ['meta', { property: 'og:title', content: 'Atelier · 仓颉 Agent 生态' }],
     ['meta', { property: 'og:description', content: '协议、框架与成品：用仓颉语言搭建 Agent 生态。' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    // 百度统计
+    [
+      'script',
+      {},
+      `var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?69da7f3976ba6a2c28a6cfc291f5b218";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();`,
+    ],
   ],
   themeConfig: {
     logo: '/logo.svg',
