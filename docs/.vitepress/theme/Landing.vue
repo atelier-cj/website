@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 import Starfield from './components/Starfield.vue'
 import TerminalDemo from './components/TerminalDemo.vue'
 import UseCases from './components/UseCases.vue'
@@ -11,6 +11,11 @@ import SiteFooter from './components/SiteFooter.vue'
 const stuck = ref(false)
 const menuOpen = ref(false)
 let io: IntersectionObserver | null = null
+
+// 抽屉是覆盖层，展开时锁住背景滚动，避免层级和滚动位置错乱
+watch(menuOpen, (open) => {
+  document.body.style.overflow = open ? 'hidden' : ''
+})
 
 function onScroll() {
   stuck.value = window.scrollY > 24
@@ -40,6 +45,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   io?.disconnect()
+  document.body.style.overflow = ''
 })
 </script>
 
@@ -469,12 +475,39 @@ onUnmounted(() => {
   position: fixed;
   inset: 64px 0 auto;
   z-index: 55;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  padding: 18px clamp(20px, 6vw, 40px) 28px;
-  background: rgba(5, 7, 13, 0.97);
+  padding: 14px clamp(20px, 6vw, 40px) 28px;
+  background: rgba(5, 7, 13, 0.98);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--at-line);
+}
+
+/* 分组标题：加一条延伸线，和可点的链接区分开 */
+.at-drawer__group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0 4px;
+  font-family: var(--at-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--at-cyan);
+  opacity: 0.85;
+}
+
+.at-drawer__group:first-child {
+  margin-top: 4px;
+}
+
+.at-drawer__group::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--at-line), transparent);
 }
 
 .at-drawer a {

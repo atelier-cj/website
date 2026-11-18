@@ -7,9 +7,12 @@ import puppeteer from 'puppeteer-core'
 const [, , path = '/', out = '.shots/page.png', w = '1440', h = '1200'] = process.argv
 const base = process.env.SITE_URL || 'http://127.0.0.1:4173'
 
+const args = ['--no-sandbox', '--disable-gpu', '--hide-scrollbars']
+if (process.env.CHROME_PROXY) args.push(`--proxy-server=${process.env.CHROME_PROXY}`)
+
 const browser = await puppeteer.launch({
   executablePath: '/usr/bin/google-chrome-stable',
-  args: ['--no-sandbox', '--disable-gpu', '--hide-scrollbars'],
+  args,
   headless: 'new',
 })
 
