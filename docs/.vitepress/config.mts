@@ -85,6 +85,7 @@ export default defineConfig({
           items: [
             { text: '库索引', link: '/libs/' },
             { text: 'Atelier · Agent Harness', link: '/libs/atelier' },
+            { text: 'Atelier 完整文档', link: '/libs/atelier/docs' },
             { text: 'Cordis · 插件系统', link: '/libs/cordis' },
             { text: 'UHP Server · 常驻服务', link: '/libs/uhp-server' },
           ],

@@ -85,6 +85,12 @@
   border-color: var(--vp-c-divider);
 }
 
+/* 文档导航页：首列是文档名，别被右侧长描述挤成两行 */
+.atelier-docs .vp-doc table th:first-child,
+.atelier-docs .vp-doc table td:first-child {
+  white-space: nowrap;
+}
+
 .dark .VPNavBarTitle .logo {
   filter: drop-shadow(0 0 8px rgba(34, 230, 255, 0.35));
 }

@@ -86,6 +86,7 @@ runtime.cancelSession(sid)
 
 ## 相关
 
+- **[完整文档](/libs/atelier/docs)**：集成、配置、事件流、工具、协议接入等 17 篇，随代码发布
 - 源码：[https://atomgit.com/ystyle/atelier](https://atomgit.com/ystyle/atelier)
 - 它依赖的协议层：[/libs/mcp](/libs/mcp)、[/libs/a2a](/libs/a2a)、[/libs/acp](/libs/acp)、[/libs/uhp](/libs/uhp)
 - 它依赖的模型封装：[/libs/llm-api](/libs/llm-api)
