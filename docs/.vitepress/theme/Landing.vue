@@ -187,7 +187,7 @@ onUnmounted(() => {
             </div>
             <div>
               <dt>3</dt>
-              <dd>闭源产品</dd>
+              <dd>暂未开源</dd>
             </div>
           </dl>
         </div>

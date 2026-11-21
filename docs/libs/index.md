@@ -2,19 +2,17 @@
 
 九个仓颉库，按依赖方向分三层：**基础层**负责和模型说话，**协议层**负责和外面的世界说话，**框架层**把它们组装成能交付的产品。MCP / A2A / ACP 三个协议层库共用同一套 JSON-RPC 底座（UHP 自己基于 stdx 实现 HTTP），所以选型时先看「对面要什么协议」，再决定拉哪个包。
 
-| 库 | 包名 | 层 | 一句话 | 版本 |
-|---|---|---|---|---|
-| [Atelier](/libs/atelier) | `atelier` | 框架层 | 可嵌入的 Agent Harness：推理循环、工具、上下文压缩、信任闸门都已实现 | 0.1.15 |
-| [Cordis](/libs/cordis) | `ystyle::cordis_core` / `cordis_host` / `cordis_plugin` | 框架层 | DeepSeek Harness 的 cordis-js 仓颉实现：微内核 + 进程隔离，热插拔、崩溃自愈 | 0.3.2 |
-| [UHP Server](/libs/uhp-server) | 不发中心仓（二进制产品） | 框架层 | 把多个 harness 收敛成一个 UHP 常驻端点 | 0.1.0 |
-| [JSON-RPC](/libs/json-rpc) | `ystyle::jsonrpc` + 5 个传输层包 | 协议层 | JSON-RPC 2.0 框架，协议层的消息底座 | 0.7.9 |
-| [MCP](/libs/mcp) | `mcp` | 协议层 | Model Context Protocol 的客户端与服务端 | 2.4.0 |
-| [A2A](/libs/a2a) | `a2a` | 协议层 | A2A v1.0 双向实现：Agent 之间互相调用 | 0.1.1 |
-| [ACP](/libs/acp) | `acp` | 协议层 | ACP v1 双向实现：编辑器接入 Agent | 0.3.0 |
-| [UHP](/libs/uhp) | `uhp`（+ `uhp_acp` / `uhp_opencode`） | 协议层 | Unified Harness Protocol 的 SDK 与两个现成适配器 | 0.1.1 |
-| [LLM API](/libs/llm-api) | `llm_api` | 基础层 | OpenAI / Anthropic / Ollama 一套接口打通 | 1.4.2 |
-
-> 版本号取自各库的 `cjpm.toml`（monorepo 取子成员里的那一份）；实际能拉取的版本以中心仓为准。
+| 库 | 包名 | 层 | 一句话 |
+|---|---|---|---|
+| [Atelier](/libs/atelier) | `atelier` | 框架层 | 可嵌入的 Agent Harness：推理循环、工具、上下文压缩、信任闸门都已实现 |
+| [Cordis](/libs/cordis) | `ystyle::cordis_core` / `cordis_host` / `cordis_plugin` | 框架层 | DeepSeek Harness 的 cordis-js 仓颉实现：微内核 + 进程隔离，热插拔、崩溃自愈 |
+| [UHP Server](/libs/uhp-server) | 不发中心仓（二进制产品） | 框架层 | 把多个 harness 收敛成一个 UHP 常驻端点 |
+| [JSON-RPC](/libs/json-rpc) | `ystyle::jsonrpc` + 5 个传输层包 | 协议层 | JSON-RPC 2.0 框架，协议层的消息底座 |
+| [MCP](/libs/mcp) | `mcp` | 协议层 | Model Context Protocol 的客户端与服务端 |
+| [A2A](/libs/a2a) | `a2a` | 协议层 | A2A v1.0 双向实现：Agent 之间互相调用 |
+| [ACP](/libs/acp) | `acp` | 协议层 | ACP v1 双向实现：编辑器接入 Agent |
+| [UHP](/libs/uhp) | `uhp`（+ `uhp_acp` / `uhp_opencode`） | 协议层 | Unified Harness Protocol 的 SDK 与两个现成适配器 |
+| [LLM API](/libs/llm-api) | `llm_api` | 基础层 | OpenAI / Anthropic / Ollama 一套接口打通 |
 
 ## 基础层：模型访问
 

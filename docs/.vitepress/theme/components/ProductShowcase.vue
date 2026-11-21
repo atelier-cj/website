@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
  * 三个成品：用 CSS 画的示意界面，不依赖截图资源。
- * 均为闭源产品，这里只做生态展示，页面不提供源码或构建入口。
+ * 均暂未开源，这里只做生态展示，页面不提供源码或构建入口。
  */
 </script>
 
@@ -12,7 +12,7 @@
       <h2 class="at-section__title">三个已经跑起来的产品</h2>
       <p class="at-section__desc">
         框架之上是完整的应用，也是这套生态真正的使用者。
-        三个产品均闭源，这里只做展示 —— 它们反过来验证了下面这些库能撑住真实产品。
+        三个产品均暂未开源，这里只做展示 —— 它们反过来验证了下面这些库能撑住真实产品。
       </p>
     </div>
 
@@ -81,7 +81,7 @@
         <div class="at-product__body">
           <div class="at-product__meta">
             <span class="at-product__badge">HOST PLATFORM</span>
-            <span class="at-product__status is-dev">私有 · Phase 4</span>
+            <span class="at-product__status is-dev">暂未开源 · Phase 4</span>
           </div>
           <h3 class="at-product__name">
             世界树

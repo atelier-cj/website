@@ -14,7 +14,7 @@
 
 ## 安装
 
-本仓是**产品，不发中心仓**（当前 `cjpm.toml` 版本 `0.1.0`）。从源码构建：
+本仓是**产品，不发中心仓**。从源码构建：
 
 ```bash
 eval "$(cjvs env zsh)" && eval "$(cjvs stdx-env zsh)"

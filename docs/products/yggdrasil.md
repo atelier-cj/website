@@ -2,7 +2,7 @@
 
 > Atelier Yggdrasil · 插件化 Agent 宿主平台
 >
-> **DeepSeek Harness（dsh）的仓颉实现** · 闭源产品<br>
+> **DeepSeek Harness（dsh）的仓颉实现** · 暂未开源<br>
 > 本站仅作生态展示，源码未公开。
 
 把 [Atelier](/libs/atelier)（Agent 内核）、[Cordis](/libs/cordis)（插件内核：进程隔离 / 热卸载 / 事件总线）与 cjxt（服务端驱动 UI）融合成一个「everything is a plugin」的宿主平台。
@@ -90,7 +90,7 @@
 - **Phase 1–3 已完成**：最小闭环（界面 → 宿主 → agent 插件 → 模型 → 事件流回界面）、seam 拆分（llm / tools / session / agent 四插件拓扑）、对齐 dsh 形态（profile 装配 + web / run / repl 三入口）。
 - **多会话运行面已落地**：会话池、插话、按会话归档事件、运行状态查询。
 - **Phase 4（cjxt 插件兼容层）规划中**：让页面以接近原生的方式消费插件能力（插件上下文 + 插件信号），消除每页手写事件桥与推送的样板。
-- **闭源**：私有项目，未发布中心仓，后续发版口径待定；本站仅作生态展示。
+- **暂未开源**：私有项目，未发布中心仓，后续发版口径待定；本站仅作生态展示。
 
 ## 相关
 

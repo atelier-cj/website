@@ -6,11 +6,11 @@
 
 | 协议 | 谁和谁说话 | 解决的问题 | 传输 | 库 |
 |---|---|---|---|---|
-| MCP | Agent ↔ 工具 / 数据源 | 能力怎么被模型看见和调用 | stdio、Streamable HTTP | [mcp](/libs/mcp) 2.4.0 |
-| A2A | Agent ↔ Agent | 跨进程、跨组织的任务交接 | JSON-RPC、HTTP+JSON、SSE | [a2a](/libs/a2a) 0.1.1 |
-| ACP | 编辑器 / 宿主 ↔ Agent 子进程 | 把 Agent 接进别人的产品 | stdio（`\n` 帧） | [acp](/libs/acp) 0.3.0 |
-| UHP | 客户端 ↔ 远端 harness | 常驻 harness 的调用标准化 | HTTP + SSE | [uhp](/libs/uhp) 0.1.1 |
-| JSON-RPC | 任意两端 | 消息与请求/响应底座，不绑定语义 | stdio / TCP / Unix / HTTP / WS | [json-rpc](/libs/json-rpc) 0.7.9 |
+| MCP | Agent ↔ 工具 / 数据源 | 能力怎么被模型看见和调用 | stdio、Streamable HTTP | [mcp](/libs/mcp) |
+| A2A | Agent ↔ Agent | 跨进程、跨组织的任务交接 | JSON-RPC、HTTP+JSON、SSE | [a2a](/libs/a2a) |
+| ACP | 编辑器 / 宿主 ↔ Agent 子进程 | 把 Agent 接进别人的产品 | stdio（`\n` 帧） | [acp](/libs/acp) |
+| UHP | 客户端 ↔ 远端 harness | 常驻 harness 的调用标准化 | HTTP + SSE | [uhp](/libs/uhp) |
+| JSON-RPC | 任意两端 | 消息与请求/响应底座，不绑定语义 | stdio / TCP / Unix / HTTP / WS | [json-rpc](/libs/json-rpc) |
 
 MCP / A2A / ACP 三套都建在 `ystyle::jsonrpc` 上，所以用法形状相似：`Server` 注册 handler、`Client` 发请求、类型实现 `stdx.encoding.json.stream` 的序列化接口。UHP 是例外——它只依赖 stdx，形状是 HTTP 资源模型（`/v1/responses` + SSE），不套 JSON-RPC。
 

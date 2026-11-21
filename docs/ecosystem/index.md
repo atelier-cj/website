@@ -34,20 +34,20 @@
 
 `ystyle::jsonrpc` 提供消息类型、编解码、分帧与五种传输。`mcp` / `a2a` / `acp` 都建在它上面，因此代码形状高度一致：`Server` 注册 handler、`Client` 发请求、消息类型实现 `stdx.encoding.json.stream` 的序列化接口；`uhp` 是例外，只依赖 stdx，形状是 HTTP 资源模型。
 
-- [mcp](/libs/mcp) 2.4.0 —— 工具 / 资源 / 提示词；stdio 与 Streamable HTTP；协议 2025-11-25 是推荐线。
-- [a2a](/libs/a2a) 0.1.1 —— Agent Card 发现、九个任务状态、SSE、推送；官方 TCK 可执行 MUST 全过。
-- [acp](/libs/acp) 0.3.0 —— 子进程 + stdio，被 Zed / opencode 拉起；含 `terminal/*`、`fs/*` 反向调用。
-- [uhp](/libs/uhp) 0.1.1 —— 常驻 harness 协议；一致性套件 core / extended / full 三档全过。
+- [mcp](/libs/mcp) —— 工具 / 资源 / 提示词；stdio 与 Streamable HTTP；协议 2025-11-25 是推荐线。
+- [a2a](/libs/a2a) —— Agent Card 发现、九个任务状态、SSE、推送；官方 TCK 可执行 MUST 全过。
+- [acp](/libs/acp) —— 子进程 + stdio，被 Zed / opencode 拉起；含 `terminal/*`、`fs/*` 反向调用。
+- [uhp](/libs/uhp) —— 常驻 harness 协议；一致性套件 core / extended / full 三档全过。
 
 四者不互相依赖。选哪个看对面是谁，见[协议选型](/guide/protocols)。
 
 ## 框架层：把协议与模型装配成产品
 
-- [atelier](/libs/atelier) 0.1.15 —— 核心 Harness：Agent 循环、工具系统、树形会话、上下文压缩、信任闸门、Skill、子 Agent。同时实现 MCP / A2A / ACP / UHP 四个端，一个 Agent 可以既被编辑器拉起、又对外提供 A2A、又作为远端 harness 被派活。
-- [cordis](/libs/cordis) 0.3.2 —— DeepSeek Harness 的 cordis-js 的仓颉实现，同时是与 Agent 无关的通用组合框架：插件跑在独立进程，卸载即杀进程回收资源，配置声明期望状态、调和器 diff 执行。
-- [uhp-server](/libs/uhp-server) 0.1.0 —— 产品（不发中心仓）：一份 TOML 声明 token 与 harness，一个端口对外，可选把适配器放进 cordis 托管的插件进程。
+- [atelier](/libs/atelier) —— 核心 Harness：Agent 循环、工具系统、树形会话、上下文压缩、信任闸门、Skill、子 Agent。同时实现 MCP / A2A / ACP / UHP 四个端，一个 Agent 可以既被编辑器拉起、又对外提供 A2A、又作为远端 harness 被派活。
+- [cordis](/libs/cordis) —— DeepSeek Harness 的 cordis-js 的仓颉实现，同时是与 Agent 无关的通用组合框架：插件跑在独立进程，卸载即杀进程回收资源，配置声明期望状态、调和器 diff 执行。
+- [uhp-server](/libs/uhp-server) —— 产品（不发中心仓）：一份 TOML 声明 token 与 harness，一个端口对外，可选把适配器放进 cordis 托管的插件进程。
 
-模型访问在更下面：[llm_api](/libs/llm-api) 1.4.2 只做「和模型说话」——同步 `chat()`、流式 `chatStreaming()`、工具调用增量、推理内容、多模态。上层不该自己拼 HTTP。
+模型访问在更下面：[llm_api](/libs/llm-api) 只做「和模型说话」——同步 `chat()`、流式 `chatStreaming()`、工具调用增量、推理内容、多模态。上层不该自己拼 HTTP。
 
 ## 成品层：两个已经能用的应用
 

@@ -39,14 +39,14 @@ eval "$(cjvs env zsh)" && eval "$(cjvs stdx-env zsh)"
 
 | 仓 | 主要包名 | 声明版本 |
 |---|---|---|
-| [json-rpc](/libs/json-rpc) | `ystyle::jsonrpc` 0.7.9 | 1.0.0 |
-| [llm_api](/libs/llm-api) | `llm_api` 1.4.2 | 1.1.0 |
-| [mcp-cj](/libs/mcp) | `mcp` 2.4.0 | 1.1.0 |
-| [a2a-cj](/libs/a2a) | `a2a` 0.1.1 | 1.1.0 |
-| [acp-cj](/libs/acp) | `acp` 0.3.0 | 1.1.0 |
-| [atelier](/libs/atelier) | `atelier` 0.1.15 | 1.1.0（`cli` 成员是 1.1.3） |
-| [cordis-cj](/libs/cordis) | `cordis_*` 0.3.2 | 1.1.3 |
-| [uhp](/libs/uhp) | `uhp` 0.1.1 | 1.2.0 |
+| [json-rpc](/libs/json-rpc) | `ystyle::jsonrpc` | 1.0.0 |
+| [llm_api](/libs/llm-api) | `llm_api` | 1.1.0 |
+| [mcp-cj](/libs/mcp) | `mcp` | 1.1.0 |
+| [a2a-cj](/libs/a2a) | `a2a` | 1.1.0 |
+| [acp-cj](/libs/acp) | `acp` | 1.1.0 |
+| [atelier](/libs/atelier) | `atelier` | 1.1.0（`cli` 成员是 1.1.3） |
+| [cordis-cj](/libs/cordis) | `cordis_*` | 1.1.3 |
+| [uhp](/libs/uhp) | `uhp` | 1.2.0 |
 | [uhp-server](/libs/uhp-server) | 不发中心仓 | 1.2.0 |
 
 只写一个 MCP 服务器或一个 ACP Agent 的话，1.1.3 起步就够；要用 `uhp` / `uhp-server`，装 1.2.0。
