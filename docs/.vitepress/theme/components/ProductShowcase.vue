@@ -88,7 +88,7 @@
             <span>Atelier Yggdrasil</span>
           </h3>
           <p class="at-product__desc">
-            插件化 Agent 宿主：把 Agent 内核、插件内核与界面层融成「一切皆插件」的平台。
+            DeepSeek Harness（dsh）的仓颉实现：把 Agent 内核、插件内核与界面层融成「一切皆插件」的宿主平台。
             每个插件独立进程运行，可热卸载、崩溃自愈，按 profile 声明依赖拓扑完成装配。
           </p>
           <ul class="at-product__points">

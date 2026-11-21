@@ -2,9 +2,12 @@
 
 > Atelier Yggdrasil · 插件化 Agent 宿主平台
 >
-> **闭源产品** · 本站仅作生态展示，源码未公开。
+> **DeepSeek Harness（dsh）的仓颉实现** · 闭源产品<br>
+> 本站仅作生态展示，源码未公开。
 
-把 [Atelier](/libs/atelier)（Agent 内核）、[Cordis](/libs/cordis)（插件内核：进程隔离 / 热卸载 / 事件总线）与 cjxt（服务端驱动 UI）融合成一个「everything is a plugin」的宿主平台。对标 dsh（DeepSeek Harness）的形态，纯仓颉实现。
+把 [Atelier](/libs/atelier)（Agent 内核）、[Cordis](/libs/cordis)（插件内核：进程隔离 / 热卸载 / 事件总线）与 cjxt（服务端驱动 UI）融合成一个「everything is a plugin」的宿主平台。
+
+它要回答的问题是：**dsh 那套「一切皆插件」的 harness 形态，能不能整条链换成仓颉。** 形态对齐 dsh——profile 驱动装配、web / run / repl 三入口、跨进程通信走 ACP（JSON-RPC over stdio）；内核全部落在仓颉生态里：Agent 内核是 Atelier，插件内核是 Cordis（cordis-js 的仓颉实现），界面是 cjxt。整条链没有 Node 运行时，也没有 TypeScript。
 
 ## 名字
 

@@ -27,7 +27,7 @@ const libs: Lib[] = [
     code: 'PLUGIN',
     name: 'Cordis',
     pkg: 'cordis',
-    desc: '微内核 + 进程隔离的插件系统：插件以子进程运行，卸载即回收全部资源。',
+    desc: 'DeepSeek Harness 的 cordis-js 仓颉实现：微内核 + 进程隔离，插件以子进程运行，卸载即回收全部资源。',
     tags: ['stdio', 'UDS'],
     href: '/libs/cordis',
     layer: 'framework',

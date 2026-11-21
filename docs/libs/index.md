@@ -5,7 +5,7 @@
 | 库 | 包名 | 层 | 一句话 | 版本 |
 |---|---|---|---|---|
 | [Atelier](/libs/atelier) | `atelier` | 框架层 | 可嵌入的 Agent Harness：推理循环、工具、上下文压缩、信任闸门都已实现 | 0.1.15 |
-| [Cordis](/libs/cordis) | `ystyle::cordis_core` / `cordis_host` / `cordis_plugin` | 框架层 | 微内核 + 进程隔离的插件系统，热插拔、崩溃自愈 | 0.3.2 |
+| [Cordis](/libs/cordis) | `ystyle::cordis_core` / `cordis_host` / `cordis_plugin` | 框架层 | DeepSeek Harness 的 cordis-js 仓颉实现：微内核 + 进程隔离，热插拔、崩溃自愈 | 0.3.2 |
 | [UHP Server](/libs/uhp-server) | 不发中心仓（二进制产品） | 框架层 | 把多个 harness 收敛成一个 UHP 常驻端点 | 0.1.0 |
 | [JSON-RPC](/libs/json-rpc) | `ystyle::jsonrpc` + 5 个传输层包 | 协议层 | JSON-RPC 2.0 框架，协议层的消息底座 | 0.7.9 |
 | [MCP](/libs/mcp) | `mcp` | 协议层 | Model Context Protocol 的客户端与服务端 | 2.4.0 |
@@ -37,7 +37,7 @@
 协议层给出「怎么说话」，框架层给出「说什么、记住什么、允不允许」。
 
 - [atelier](/libs/atelier) —— 全栈 Harness：Agent 循环 + 工具系统 + 会话树 + 上下文压缩 + 信任闸门，并同时实现 MCP / A2A / ACP / UHP 四端。
-- [cordis](/libs/cordis) —— 不绑定 Agent 的通用组合框架：插件独立进程运行，卸载即杀进程，用声明式配置做调和。
+- [cordis](/libs/cordis) —— 不绑定 Agent 的通用组合框架（cordis-js 的仓颉实现）：插件独立进程运行，卸载即杀进程，用声明式配置做调和。
 - [uhp-server](/libs/uhp-server) —— 把 UHP 协议做成常驻服务的成品，可选把适配器放进 cordis 托管的独立进程。
 
 ## 依赖关系

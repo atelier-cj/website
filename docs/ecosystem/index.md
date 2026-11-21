@@ -44,7 +44,7 @@
 ## 框架层：把协议与模型装配成产品
 
 - [atelier](/libs/atelier) 0.1.15 —— 核心 Harness：Agent 循环、工具系统、树形会话、上下文压缩、信任闸门、Skill、子 Agent。同时实现 MCP / A2A / ACP / UHP 四个端，一个 Agent 可以既被编辑器拉起、又对外提供 A2A、又作为远端 harness 被派活。
-- [cordis](/libs/cordis) 0.3.2 —— 与 Agent 无关的通用组合框架：插件跑在独立进程，卸载即杀进程回收资源，配置声明期望状态、调和器 diff 执行。
+- [cordis](/libs/cordis) 0.3.2 —— DeepSeek Harness 的 cordis-js 的仓颉实现，同时是与 Agent 无关的通用组合框架：插件跑在独立进程，卸载即杀进程回收资源，配置声明期望状态、调和器 diff 执行。
 - [uhp-server](/libs/uhp-server) 0.1.0 —— 产品（不发中心仓）：一份 TOML 声明 token 与 harness，一个端口对外，可选把适配器放进 cordis 托管的插件进程。
 
 模型访问在更下面：[llm_api](/libs/llm-api) 1.4.2 只做「和模型说话」——同步 `chat()`、流式 `chatStreaming()`、工具调用增量、推理内容、多模态。上层不该自己拼 HTTP。

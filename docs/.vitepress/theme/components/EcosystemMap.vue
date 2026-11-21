@@ -28,7 +28,7 @@ const layers: Layer[] = [
     note: '可以直接用的应用',
     nodes: [
       { name: '荧的炼金工房', code: 'LUMINE', desc: '原神配装助手 · Web + 桌面', href: '/products/lumine' },
-      { name: '世界树', code: 'YGGDRASIL', desc: '插件化 Agent 宿主', href: '/products/yggdrasil' },
+      { name: '世界树', code: 'YGGDRASIL', desc: '插件化 Agent 宿主 · dsh 仓颉实现', href: '/products/yggdrasil' },
       { name: '星痕的炼金工房', code: 'STARLINE', desc: '人机共享的常驻桌面', href: '/products/starline' },
     ],
   },
@@ -39,7 +39,7 @@ const layers: Layer[] = [
     note: '把模型组装成 Agent',
     nodes: [
       { name: 'Atelier', code: 'HARNESS', desc: '可嵌入的 Agent 脚手架', href: '/libs/atelier' },
-      { name: 'Cordis', code: 'PLUGIN', desc: '微内核插件系统', href: '/libs/cordis' },
+      { name: 'Cordis', code: 'PLUGIN', desc: 'cordis-js 的仓颉实现', href: '/libs/cordis' },
       { name: 'UHP Server', code: 'RUNTIME', desc: '多 harness 常驻端点', href: '/libs/uhp-server' },
     ],
   },
