@@ -25,7 +25,7 @@ pageClass: atelier-docs
 | [工具](https://atomgit.com/ystyle/atelier/blob/master/docs/tools.md) | `Tool` 接口、内置工具、自定义工具、MCP 接入、Agent-as-Tool |
 | [Provider](https://atomgit.com/ystyle/atelier/blob/master/docs/providers.md) | `Provider` 接口、OpenAI / Anthropic / Ollama 适配、上下文窗口怎么声明 |
 | [Hook](https://atomgit.com/ystyle/atelier/blob/master/docs/hooks.md) | 决策型拦截器：6 个相位观察 / 改写 / 短路 Agent 生命周期 |
-| [SDK 可替换点](https://atomgit.com/ystyle/atelier/blob/master/docs/extensibility.md) | 换掉整套策略：信任判定、上下文压缩、Agent 循环 |
+| [SDK 可替换点](https://atomgit.com/ystyle/atelier/blob/master/docs/extensibility.md) | 完整的替换点清单：契约级 3 个（信任判定 / 压缩 / 循环）+ 组件级 15 个（存储 / Provider / 工具 / Skill / 中间件 / 事件总线 …），每项带实现要求与跳转 |
 
 ## 进阶功能
 
